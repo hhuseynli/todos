@@ -1,0 +1,16 @@
+
+<table class="table ">
+    <h4>Create a Category</h4>
+    <tbody>
+        <tr>
+            <td>Category: </td>
+            <td><input type="text" [(ngModel)]="category.name" name="addedCategory" required  ></td>
+        </tr>
+        <tr>
+
+            <td> <button class="btn btn-primary" (click)="onSaveCategory()" type="submit">Save Category</button> </td>
+
+        </tr>
+    
+    </tbody>
+</table>

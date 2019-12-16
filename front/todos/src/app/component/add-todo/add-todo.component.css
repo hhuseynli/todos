@@ -1,3 +1,9 @@
 input,select{
 width:100%;
 }
+.ng-invalid:not(form){
+    border-left: 4px solid red;
+}
+.ng-valid{
+    border-left: 4px solid green;
+}

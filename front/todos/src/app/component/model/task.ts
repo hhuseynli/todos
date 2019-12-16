@@ -1,10 +1,10 @@
 export class Task {
-    public id: number;
+    public id: number=0;
     public name: string;
     public day: number;
     public start: Date;
     public category: Category;
-    public status: string;
+    public status: string="Not Done";
     constructor() {
         this.category = new Category();
     }

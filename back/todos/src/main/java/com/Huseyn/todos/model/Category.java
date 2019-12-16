@@ -16,10 +16,7 @@ public String getname() {
 public void setname(String name) {
 	this.name = name;
 }
-@Override
-public String toString() {
-	return  name ;
-}
+
 
 
 }

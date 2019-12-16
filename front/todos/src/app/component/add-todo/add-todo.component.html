@@ -1,30 +1,32 @@
+<form #todoForm="ngForm" (ngSubmit)="!todoForm.invalid && onSaveTask()">
 <table class="table ">
     <h4>Create a Task</h4>
     <tbody>
         <tr>
             <td>Task: </td>
-            <td><input type="text" [(ngModel)]="task.name"></td>
+            <td><input type="text" [(ngModel)]="task.name" name="task" required  ></td>
         </tr>
         <tr>
             <td>Category: </td>
-            <td><select [(ngModel)]="task.category.id">
+            <td><select [(ngModel)]="task.category.id" name="category" >
                     <option [value]="c.id" *ngFor="let c of categories" > {{c.name}} </option>
 
                 </select></td>
         </tr>
         <tr>
             <td>Start Date: </td>
-            <td><input type="date" [(ngModel)]="task.start"></td>
+            <td><input type="date" [(ngModel)]="task.start" name="date" ></td>
         </tr>
         <tr>
             <td>Day: </td>
-            <td><input type="number" [(ngModel)]="task.day"></td>
+            <td><input type="number" [(ngModel)]="task.day" name="day" ></td>
         </tr>
         <tr>
 
-            <td> <button class="btn btn-primary" (click)="onSaveTask()">Save Task</button> </td>
+            <td> <button class="btn btn-primary" (click)="onSaveTask()" type="submit">Save Task</button> </td>
 
         </tr>
 
     </tbody>
 </table>
+</form>

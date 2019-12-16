@@ -13,7 +13,8 @@ import { MatInputModule, MatDialogModule, MatProgressSpinnerModule, MatButtonMod
   from '@angular/material';
 import { AddTodoComponent } from './component/add-todo/add-todo.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { AddCategoryComponent } from './add-category/add-category.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http'
     ArraysComponent,
     StudentListComponent,
     TodoListComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,

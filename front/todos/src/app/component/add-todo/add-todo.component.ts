@@ -16,17 +16,21 @@ export class AddTodoComponent implements OnInit {
   }
 
   ngOnInit() {
-    let category1: Category = new Category();
-    category1.id = 1;
-    category1.name = "Learning Language";
+    // let category1: Category = new Category();
+    // category1.id = 1;
+    // category1.name = "Learning Language";
 
-    let category2: Category = new Category();
-    category2.id = 2;
-    category2.name = "Reading Book";
+    // let category2: Category = new Category();
+    // category2.id = 2;
+    // category2.name = "Reading Book";
 
-    this.categories.push(category1, category2);
-    this.task.category.id = 1;
+    // this.categories.push(category1, category2);
+    // this.task.category.id = 1;
+    
+      
   }
+
+  
 
 
 
@@ -39,8 +43,8 @@ export class AddTodoComponent implements OnInit {
     // todo.day = this.task.day;
     // todo.status = "Not Completed";
     // this.todoService.todos.push(todo);
-    console.log(this.task.category.name);
     this.todoService.addTodoToBackend(this.task);
 
   }
+}
 }

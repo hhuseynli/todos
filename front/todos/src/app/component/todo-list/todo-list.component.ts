@@ -4,6 +4,7 @@ import { AddTodoComponent } from '../add-todo/add-todo.component';
 import { TodoService } from 'src/app/service/todo.service';
 import { AgGridAngular } from 'ag-grid-angular';
 import { Task } from '../model/task';
+import { AddCategoryComponent } from '../add-category/add-category.component';
 
 @Component({
   selector: 'app-todo-list',
@@ -21,11 +22,15 @@ export class TodoListComponent implements OnInit {
     this.matDialog.open(AddTodoComponent);
 
   }
+  onAddCategory() {
+    this.matDialog.open(AddCategoryComponent);
+
+  }
   columnDefs = [
     { headerName: 'ID', field: 'id', sortable: true, filter: true, checkboxSelection: true, width: 100 },
     { headerName: 'Task', field: 'name', sortable: true, filter: true },
     { headerName: 'Day', field: 'day', sortable: true, filter: true },
-    // {headerName: 'Category Name', field: 'category.name', sortable: true, filter: true },
+     //{headerName: 'Category Name', field: 'category', sortable: true, filter: true },
     { headerName: 'Start Date', field: 'start', sortable: true, filter: true },
     { headerName: 'Status', field: 'status', sortable: true, filter: true }
   ];
