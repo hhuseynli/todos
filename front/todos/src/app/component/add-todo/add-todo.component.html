@@ -1,0 +1,30 @@
+<table class="table ">
+    <h4>Create a Task</h4>
+    <tbody>
+        <tr>
+            <td>Task: </td>
+            <td><input type="text" [(ngModel)]="task.name"></td>
+        </tr>
+        <tr>
+            <td>Category: </td>
+            <td><select [(ngModel)]="task.category.id">
+                    <option [value]="c.id" *ngFor="let c of categories" > {{c.name}} </option>
+
+                </select></td>
+        </tr>
+        <tr>
+            <td>Start Date: </td>
+            <td><input type="date" [(ngModel)]="task.start"></td>
+        </tr>
+        <tr>
+            <td>Day: </td>
+            <td><input type="number" [(ngModel)]="task.day"></td>
+        </tr>
+        <tr>
+
+            <td> <button class="btn btn-primary" (click)="onSaveTask()">Save Task</button> </td>
+
+        </tr>
+
+    </tbody>
+</table>

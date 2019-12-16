@@ -1,0 +1,33 @@
+<p>arrays works!</p>
+<hr>
+<div>
+    <button (click)="fillArray()"> Fill Array</button>
+    <hr>
+    <ol>
+        <li *ngFor="let n of numbers">{{n}}</li>
+    </ol>
+
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Task name</th>
+                <th> Day</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of tasks">
+                <td>{{t.id}}</td>
+                <td>{{t.name}}</td>
+                <td>{{t.day}}</td>
+                <td>{{t.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button [disabled]="!allowButtonClick">Activate </button>
+<br>
+<img [src]="imageURL" alt="image">
+<button (click)="onNextImage()">Next image</button>
