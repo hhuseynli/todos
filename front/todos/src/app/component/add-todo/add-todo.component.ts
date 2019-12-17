@@ -27,24 +27,26 @@ export class AddTodoComponent implements OnInit {
     // this.categories.push(category1, category2);
     // this.task.category.id = 1;
     this.todoService.getAllCategories().subscribe(
-      resp=>{
-        
-        this.categories=resp;
+      resp => {
+
+        this.categories = resp;
       }
     );
-    
-      
+
+
   }
 
-  
+
 
 
 
   onSaveTask() {
- 
-   
+    
     this.todoService.addTodoToBackend(this.task);
-
   }
+
+
+  
+
 }
 
