@@ -26,6 +26,12 @@ export class AddTodoComponent implements OnInit {
 
     // this.categories.push(category1, category2);
     // this.task.category.id = 1;
+    this.todoService.getAllCategories().subscribe(
+      resp=>{
+        
+        this.categories=resp;
+      }
+    );
     
       
   }
@@ -35,16 +41,10 @@ export class AddTodoComponent implements OnInit {
 
 
   onSaveTask() {
-    // let todo: Task = new Task();
-    // todo.id = (this.todoService.todos.length + 1);
-    // todo.name = this.task.name;
-    // todo.category.name = this.task.category.name;
-    // todo.start = this.task.start;
-    // todo.day = this.task.day;
-    // todo.status = "Not Completed";
-    // this.todoService.todos.push(todo);
+ 
+   
     this.todoService.addTodoToBackend(this.task);
 
   }
 }
-}
+

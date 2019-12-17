@@ -13,6 +13,8 @@ import { AddCategoryComponent } from '../add-category/add-category.component';
 })
 export class TodoListComponent implements OnInit {
 
+  todos: Task[] = [];
+
   constructor(private matDialog: MatDialog, public todoService: TodoService) { }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class TodoListComponent implements OnInit {
     { headerName: 'ID', field: 'id', sortable: true, filter: true, checkboxSelection: true, width: 100 },
     { headerName: 'Task', field: 'name', sortable: true, filter: true },
     { headerName: 'Day', field: 'day', sortable: true, filter: true },
-     //{headerName: 'Category Name', field: 'category', sortable: true, filter: true },
+     {headerName: 'Category Name', field: 'category.name', sortable: true, filter: true },
     { headerName: 'Start Date', field: 'start', sortable: true, filter: true },
     { headerName: 'Status', field: 'status', sortable: true, filter: true }
   ];
@@ -52,7 +54,7 @@ export class TodoListComponent implements OnInit {
       }
       ); 
   }
-  todos: Task[] = [];
+x
 }
 
 

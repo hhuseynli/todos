@@ -1,4 +1,4 @@
-
+<form #todoForm="ngForm" (ngSubmit)="!todoForm.invalid && onSaveCategory()">
 <table class="table ">
     <h4>Create a Category</h4>
     <tbody>
@@ -14,3 +14,4 @@
     
     </tbody>
 </table>
+</form>

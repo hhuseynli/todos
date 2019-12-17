@@ -17,6 +17,8 @@ export class AddCategoryComponent implements OnInit {
 
   onSaveCategory(){
    this.todoService.addCategoryToBackend(this.category);
+   
   }
+  
 
 }

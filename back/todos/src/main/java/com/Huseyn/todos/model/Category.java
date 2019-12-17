@@ -10,13 +10,17 @@ public int getId() {
 public void setId(int id) {
 	this.id = id;
 }
+
 public String getname() {
 	return name;
 }
 public void setname(String name) {
 	this.name = name;
 }
-
+@Override
+public String toString() {
+	return "Category [id=" + id + ", name=" + name + "]";
+}
 
 
 }
