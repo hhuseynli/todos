@@ -28,6 +28,24 @@ export class TodoListComponent implements OnInit {
     this.matDialog.open(AddCategoryComponent);
 
   }
+  onDeleteTodo(){
+    let selectedRows=this.agGrid.api.getSelectedRows();
+    if(selectedRows.length>0){
+      for(let index = 0; index < selectedRows.length; index++){
+        let task:Task=selectedRows[index];
+       let id= task.id;
+       this.todoService.deleteById(id).subscribe(
+        resp=>{
+          alert('Selected Row Deleted');
+        }
+      );
+
+      }
+    }else{
+      alert('Select a row');
+    }
+  }
+  
   columnDefs = [
     { headerName: 'ID', field: 'id', sortable: true, filter: true, checkboxSelection: true, width: 100 },
     { headerName: 'Task', field: 'name', sortable: true, filter: true },

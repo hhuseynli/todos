@@ -2,6 +2,8 @@
 <hr>
 <button (click)="onAddTodo()" class="btn btn-success">Add task</button>
 <hr>
+<button (click)="onDeleteTodo()" class="btn btn-danger">Delete</button>
+<hr>
 
 <!-- <table class="table">
     <thead>
@@ -19,9 +21,9 @@
         </tr>
     </tbody>
 </table> -->
-<button (click)="loadRows()">Siyahını yenilə</button>
+<button (click)="loadRows()">Refresh</button>
 
-<input placeholder="Axtarış" [(ngModel)]="searchText" type="text" (keyup)="quickSearch()" class="search">
+<input placeholder="Search" [(ngModel)]="searchText" type="text" (keyup)="quickSearch()" class="search">
 <ag-grid-angular
    #agGrid
    style="width: 100%;

@@ -36,5 +36,8 @@ export class TodoService {
      return this.http.get<Category[]>('http://localhost:8080/categories/category');
 
   }
+  public deleteById(id:number){
+    return this.http.delete(`http://localhost:8080/todos/${id}`);
+  }
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,9 +44,9 @@ public Todo getTodoById(@PathVariable(name="id") Integer id){
 	
 }
 
-//@RequestMapping(path="/todo/{id}",method=RequestMethod.DELETE)
-//public void deleteTodoById(@PathVariable(name="id") Integer id){
-//	 Database.allTodos.remove(id);
-//	
-//}
+@DeleteMapping(path="/{id}")
+public void deleteTodoById(@PathVariable(name="id") Integer id){
+	 Database.allTodos.remove(id-1);
+	
+}
 }
