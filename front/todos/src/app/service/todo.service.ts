@@ -13,10 +13,19 @@ export class TodoService {
 
 
   public addTodoToBackend(todo:Task){
-    this.http.post('http://localhost:8080/todos/todo',todo).subscribe();
+    this.http.post('http://localhost:8080/todos/todo',todo).subscribe(
+      ans=>{
+        alert('Task added successfully');
+      }
+    );
   }
     public addCategoryToBackend(category:Category){
-    this.http.post('http://localhost:8080/categories/category',category).subscribe();
+    this.http.post('http://localhost:8080/categories/category',category).subscribe(
+      
+      ans=>{
+        alert('Category added successfully');
+      }
+    );
   }
   public getAllTodos() {
     return this.http.get<Task[]>('http://localhost:8080/todos/todo');
