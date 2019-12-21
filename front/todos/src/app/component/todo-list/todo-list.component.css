@@ -6,3 +6,7 @@
 .cedvel{
     width:100%;
 }
+button{
+    margin: 5px;
+    border-radius: 20px; 
+}

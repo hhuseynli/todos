@@ -32,6 +32,8 @@ export class AddTodoComponent implements OnInit {
         this.categories = resp;
       }
     );
+    this.task=this.todoService.selectedTask;
+    
 
 
   }
@@ -41,8 +43,10 @@ export class AddTodoComponent implements OnInit {
 
 
   onSaveTask() {
+    
      this.task.category.name=this.categories[this.task.category.id-1].name;
     this.todoService.addTodoToBackend(this.task);
+    
   }
 
 

@@ -25,12 +25,14 @@ public class TodoRestController  {
 	
 	
 @RequestMapping(path="/todo",method=RequestMethod.POST)
-public void addTodo( @RequestBody Todo todo){
+public Todo addTodo( @RequestBody Todo todo){
+	
 	
 	int id =Database.allTodos.size()+1;
 	todo.setId(id);
 	System.out.println(todo);
 	todoDAO.save(todo);
+	return todo;
 	
 }
 @RequestMapping(path="/todo",method=RequestMethod.GET)
@@ -46,7 +48,12 @@ public Todo getTodoById(@PathVariable(name="id") Integer id){
 
 @DeleteMapping(path="/{id}")
 public void deleteTodoById(@PathVariable(name="id") Integer id){
-	 Database.allTodos.remove(id-1);
+	for (int i = 0; i < Database.allTodos.size(); i++) {
+		if(Database.allTodos.get(i).getId()==id){
+			 Database.allTodos.remove(i);
+			 break;
+		}
+	}
 	
 }
 }

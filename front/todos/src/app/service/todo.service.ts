@@ -7,14 +7,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TodoService {
+  
+  selectedTask: Task;
  
 
   constructor(private http:HttpClient) { }
 
 
   public addTodoToBackend(todo:Task){
-    this.http.post('http://localhost:8080/todos/todo',todo).subscribe(
+    this.http.post<Task>('http://localhost:8080/todos/todo',todo).subscribe(
       ans=>{
+        console.log(ans);
         alert('Task added successfully');
       }
     );
