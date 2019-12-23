@@ -27,11 +27,8 @@ public class TodoRestController  {
 @RequestMapping(path="/todo",method=RequestMethod.POST)
 public Todo addTodo( @RequestBody Todo todo){
 	
-	
-	int id =Database.allTodos.size()+1;
-	todo.setId(id);
-	System.out.println(todo);
-	todoDAO.save(todo);
+	int newId = todoDAO.save(todo);
+	todo.setId(newId);
 	return todo;
 	
 }
