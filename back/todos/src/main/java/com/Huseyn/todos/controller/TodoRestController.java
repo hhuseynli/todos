@@ -37,20 +37,20 @@ public List<Todo> getAll(){
 	return todoDAO.findAll();
 	
 }
-@RequestMapping(path="/todo/{id}",method=RequestMethod.GET)
-public Todo getTodoById(@PathVariable(name="id") Integer id){
-	return Database.allTodos.get(id);
+//@RequestMapping(path="/todo/{id}",method=RequestMethod.GET)
+//public Todo getTodoById(@PathVariable(name="id") Integer id){
+//	return Database.allTodos.get(id);
+//	
+//}
+//
+//@DeleteMapping(path="/{id}")
+//public void deleteTodoById(@PathVariable(name="id") Integer id){
+//	for (int i = 0; i < Database.allTodos.size(); i++) {
+//		if(Database.allTodos.get(i).getId()==id){
+//			 Database.allTodos.remove(i);
+//			 break;
+//		}
+//	}
 	
-}
-
-@DeleteMapping(path="/{id}")
-public void deleteTodoById(@PathVariable(name="id") Integer id){
-	for (int i = 0; i < Database.allTodos.size(); i++) {
-		if(Database.allTodos.get(i).getId()==id){
-			 Database.allTodos.remove(i);
-			 break;
-		}
-	}
-	
-}
+//}
 }
