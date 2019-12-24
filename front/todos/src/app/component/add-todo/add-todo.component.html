@@ -8,7 +8,7 @@
         </tr>
         <tr>
             <td>Category: </td>
-            <td><select [(ngModel)]="task.category.id" name="category"   >
+            <td><select [(ngModel)]="task.category.id" name="category"  required >
                     <option [value]="c.id" *ngFor="let c of categories" > {{c.name}} </option>
 
                 </select></td>

@@ -85,6 +85,7 @@ export class TodoListComponent implements OnInit {
   loadRows() {
    this.todoService.getAllTodos().subscribe(
       resp=>{
+        console.log(resp);
       this.todos= resp;
       }
       ); 

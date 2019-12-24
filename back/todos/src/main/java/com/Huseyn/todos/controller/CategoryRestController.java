@@ -29,11 +29,12 @@ public class CategoryRestController {
 	}
 
 	@RequestMapping(path="/category", method=RequestMethod.POST)	
-	public void addCategory(@RequestBody Category category){
-		Integer id= Database.allCategories.size()+1;
-		category.setId(id);
-		System.out.println(category);
-		 categoryDao.save(category);
+	public Integer addCategory(@RequestBody Category category){
+		Integer newId=  categoryDao.save(category);
+		category.setId(newId);
+		return newId;
+		
+		
 		
 	}
 

@@ -23,7 +23,7 @@ export class TodoService {
     );
   }
     public addCategoryToBackend(category:Category){
-    this.http.post('http://localhost:8080/categories/category',category).subscribe(
+    this.http.post<Category>('http://localhost:8080/categories/category',category).subscribe(
       
       ans=>{
         alert('Category added successfully');
