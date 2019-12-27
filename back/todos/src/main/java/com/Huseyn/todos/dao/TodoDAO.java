@@ -52,7 +52,7 @@ public class TodoDAO {
 		List<Todo> list = new ArrayList<>();
 		try {
 			
-			String query="SELECT id, task, day, start, status FROM todo";
+			String query="SELECT id, task, day, start, status FROM todo ";
 			Connection con=source.getConnection();
 			PreparedStatement statement=con.prepareStatement(query);
 			ResultSet res= statement.executeQuery();
@@ -76,6 +76,27 @@ public class TodoDAO {
 		
 
 	}
+	public void deleteSel(Integer i) {
+		try {
+			
+				String query="DELETE FROM spring_ng_huseyn_todos.todo WHERE id = ?";
+				Connection con= source.getConnection();
+				PreparedStatement statement= con.prepareStatement(query);
+				
+				statement.setInt(1, i);
+				statement.executeUpdate();
+				
+				statement.close();
+				con.close();
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 	
 }
               
