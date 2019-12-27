@@ -47,8 +47,7 @@ public List<Todo> getAll(){
 public void deleteTodoById(@PathVariable(name="id") Integer id){
 	for (int i = 0; i < todoDAO.findAll().size(); i++) {
 		if(todoDAO.findAll().get(i).getId()==id){
-			 todoDAO.deleteSel(i);
-			 break;
+			 todoDAO.deleteSel(id);
 		}
 	}
 	

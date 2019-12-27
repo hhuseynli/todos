@@ -11,6 +11,8 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.Huseyn.todos.model.Category;
 import com.Huseyn.todos.model.Todo;
 
 @Component
@@ -23,20 +25,40 @@ public class TodoDAO {
 		Integer id=0;
 		try {
 			
-			String query="insert into todo(task,day,category_id)"+" values (?,?,?)";
+			
 			Connection con=source.getConnection();
-			PreparedStatement statement=con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
-			statement.setString(1, todo.getName());
-			statement.setInt(2, todo.getDay());
-			statement.setInt(3, todo.getCategory().getId());
-			statement.executeUpdate();
-			ResultSet res = statement.getGeneratedKeys();
-			if(res.next()){
-				id= res.getInt(1);
+			PreparedStatement statement=null;
+			ResultSet res=null;
+			
+			if(todo.getId()>0){
+				String query="update todo set task=?,day=?,start=?,category_id=? where id= "+todo.getId();
+				statement=con.prepareStatement(query);
+				statement.setString(1,todo.getName());
+				statement.setInt(2, todo.getDay());
+				statement.setDate(3, todo.getStart());
+				statement.setInt(4, todo.getCategory().getId());
+				statement.executeUpdate();
+				
+			}else{
+				String query="insert into todo(task,day,category_id)"+" values (?,?,?)";
+				statement=con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+				statement.setString(1, todo.getName());
+				statement.setInt(2, todo.getDay());
+				statement.setInt(3, todo.getCategory().getId());
+				statement.executeUpdate();
+				 res = statement.getGeneratedKeys();
+				if(res.next()){
+					id= res.getInt(1);
+				}
+			
 			}
+			
 			statement.close();
 			con.close();
+			if(res!=null){
 			res.close();
+			}
+			
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -47,12 +69,10 @@ public class TodoDAO {
 		
 	}
 	public  List<Todo> findAll() {
-		
-		//return  Database.allTodos;
 		List<Todo> list = new ArrayList<>();
 		try {
 			
-			String query="SELECT id, task, day, start, status FROM todo ";
+			String query="SELECT * FROM todo_view ";
 			Connection con=source.getConnection();
 			PreparedStatement statement=con.prepareStatement(query);
 			ResultSet res= statement.executeQuery();
@@ -63,6 +83,10 @@ public class TodoDAO {
 				todo.setDay(res.getInt("day"));
 				todo.setStart(res.getDate("start"));
 				todo.setStatus(res.getString("status"));
+				Category c = new Category();
+				c.setId(res.getInt("category_id"));
+				c.setName(res.getString("category_name"));
+				todo.setCategory(c);
 				list.add(todo);
 			}
 			statement.close();
@@ -78,14 +102,11 @@ public class TodoDAO {
 	}
 	public void deleteSel(Integer i) {
 		try {
-			
-				String query="DELETE FROM spring_ng_huseyn_todos.todo WHERE id = ?";
+				System.out.println(i);
+				String query="DELETE FROM spring_ng_huseyn_todos.todo WHERE id = "+i;
 				Connection con= source.getConnection();
 				PreparedStatement statement= con.prepareStatement(query);
-				
-				statement.setInt(1, i);
 				statement.executeUpdate();
-				
 				statement.close();
 				con.close();
 			
