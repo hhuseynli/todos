@@ -18,7 +18,7 @@ export class TodoListComponent implements OnInit {
   constructor(private matDialog: MatDialog, public todoService: TodoService) { }
 
   ngOnInit() {
-
+    
   }
   onAddTodo() {
     this.todoService.selectedTask=null;
@@ -87,12 +87,13 @@ export class TodoListComponent implements OnInit {
   loadRows() {
    this.todoService.getAllTodos().subscribe(
       resp=>{
-        console.log(resp);
+        
       this.todos= resp;
+      console.log(this.todos);
       }
       ); 
   }
-x
+
 }
 
 

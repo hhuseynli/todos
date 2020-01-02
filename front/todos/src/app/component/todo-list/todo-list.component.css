@@ -1,12 +1,15 @@
+
 .search{
-
     border-radius: 20px;
+    margin-left:825px;
+}
+.cedvel{width: 80%;height: 500px; margin-left: 125px; opacity:0.65}
 
-}
-.cedvel{
-    width:100%;
-}
 button{
     margin: 5px;
     border-radius: 20px; 
+    vertical-align: middle;
+}
+.tableButton{
+    margin-left:125px;
 }

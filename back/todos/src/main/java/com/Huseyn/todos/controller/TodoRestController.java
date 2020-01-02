@@ -35,7 +35,7 @@ public Todo addTodo( @RequestBody Todo todo){
 
 
 @RequestMapping(path="/todo",method=RequestMethod.GET)
-public List<Todo> getAll(){
+public List<Todo> getTodos(){
 	return todoDAO.findAll();
 	
 }

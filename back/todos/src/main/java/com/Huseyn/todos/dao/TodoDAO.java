@@ -47,7 +47,7 @@ public class TodoDAO {
 				statement.setInt(3, todo.getCategory().getId());
 				statement.executeUpdate();
 				 res = statement.getGeneratedKeys();
-				if(res.next()){
+				while(res.next()){
 					id= res.getInt(1);
 				}
 			
@@ -102,7 +102,6 @@ public class TodoDAO {
 	}
 	public void deleteSel(Integer i) {
 		try {
-				System.out.println(i);
 				String query="DELETE FROM spring_ng_huseyn_todos.todo WHERE id = "+i;
 				Connection con= source.getConnection();
 				PreparedStatement statement= con.prepareStatement(query);
