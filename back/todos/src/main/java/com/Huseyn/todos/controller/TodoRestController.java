@@ -61,6 +61,10 @@ public void changeStatusById(@PathVariable(name="id") Integer id,@RequestBody St
  	todoDAO.changeStatus(id,statusModel.getStatus());
 }
 }
+
+
+
+
 class StatusModel{
 	private int id;
 	private String status;
