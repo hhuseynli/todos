@@ -37,7 +37,6 @@ export class AddTodoComponent implements OnInit {
   onSaveTask() {
     
      this.task.category.name=this.categories[this.task.category.id-1].name;
-    console.log(this.task);
     this.todoService.addTodoToBackend(this.task);
     
   }

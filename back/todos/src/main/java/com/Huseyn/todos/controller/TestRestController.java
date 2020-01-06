@@ -16,8 +16,7 @@ import com.Huseyn.todos.dao.ComputerDAO;
 import com.Huseyn.todos.dao.CpuDAO;
 import com.Huseyn.todos.database.Database;
 import com.Huseyn.todos.model.Computer;
-
-import az.Huseyn.todos.service.CpuService;
+import com.Huseyn.todos.service.CpuService;
 
 @RestController  
 @RequestMapping(path="/students")

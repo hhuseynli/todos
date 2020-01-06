@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Task, Category } from '../component/model/task';
+import { Task, Category, StatusModel } from '../component/model/task';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TodoService {
+  
   
   selectedTask: Task;
  
@@ -17,7 +18,6 @@ export class TodoService {
   public addTodoToBackend(todo:Task){
     this.http.post<Task>('http://localhost:8080/todos/todo',todo).subscribe(
       ans=>{
-        console.log(ans);
         alert('Task added successfully');
       }
     );
@@ -41,6 +41,17 @@ export class TodoService {
   }
   public deleteById(id:number){
     return this.http.delete(`http://localhost:8080/todos/${id}`);
+  }
+  public changeStatusById(id:number, status:string) {
+    if(status=="Done"){
+      status="Not Done";
+    }else if(status=="Not Done"){
+      status="Done";
+    }
+    let statusModel:StatusModel=new StatusModel();
+    statusModel.status=status;
+    return this.http.put(`http://localhost:8080/todos/change-status/${id}`,statusModel);
+   
   }
 
 

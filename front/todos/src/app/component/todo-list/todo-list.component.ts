@@ -62,6 +62,25 @@ export class TodoListComponent implements OnInit {
       alert('Select a row');
     }
 }
+  onChangeStatus(){
+      let selectedRows=this.agGrid.api.getSelectedRows();
+      
+      if(selectedRows.length>0){
+          let task:Task=selectedRows[0];
+         let id= task.id;
+         let status=  task.status;
+
+         this.todoService.changeStatusById(id,status) .subscribe(
+          resp=>{
+            alert('Status changed successfully!!!');
+            this.loadRows();
+          }
+        );;
+        
+      }else{
+        alert("Select a row");
+      }
+  }
 
 
   
@@ -87,9 +106,7 @@ export class TodoListComponent implements OnInit {
   loadRows() {
    this.todoService.getAllTodos().subscribe(
       resp=>{
-        
       this.todos= resp;
-      console.log(this.todos);
       }
       ); 
   }

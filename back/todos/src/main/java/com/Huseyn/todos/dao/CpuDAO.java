@@ -2,7 +2,7 @@ package com.Huseyn.todos.dao;
 
 import org.springframework.stereotype.Component;
 
-import az.Huseyn.todos.service.CpuService;
+import com.Huseyn.todos.service.CpuService;
 
 
 @Component

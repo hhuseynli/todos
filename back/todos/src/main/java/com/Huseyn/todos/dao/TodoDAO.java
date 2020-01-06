@@ -116,6 +116,19 @@ public class TodoDAO {
 		}
 		
 	}
+	public void changeStatus(Integer id, String status) {
+		try {
+			String query = "update spring_ng_huseyn_todos.todo set status = '"+status+"' where id = "+id;
+			Connection con  = source.getConnection();
+			PreparedStatement statement= con.prepareStatement(query);
+			statement.executeUpdate();
+			statement.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	
 }

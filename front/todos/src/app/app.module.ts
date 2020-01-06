@@ -14,7 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatDialogModule, MatProgressSpinnerModule, MatButtonModule }
   from '@angular/material';
 import { AgGridModule } from 'ag-grid-angular';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BasicInterceptorService } from './service/basic-interceptor.service';
+import { MenuComponentComponent } from './component/menu-component/menu-component.component';
+import { LogOutComponent } from './component/log-out/log-out.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     StudentListComponent,
     TodoListComponent,
     AddTodoComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    MenuComponentComponent,
+    LogOutComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS ,useClass:BasicInterceptorService,multi:true}],
   bootstrap: [AppComponent],
   entryComponents: [AddTodoComponent, AddCategoryComponent]
 })
