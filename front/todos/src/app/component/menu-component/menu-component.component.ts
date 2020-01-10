@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-menu-component',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponentComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor(private userService:UserService) { }
+
+ifUserLoggedIn():boolean{
+  return this.userService.ifUserLoggedIn();
+}
+ngOnInit(){
+  
+}
+ 
 
 }
